@@ -31,8 +31,8 @@
 }
 
 /* 登录 */
-#components-form-demo-normal-login {
-  width: 360px;
+#ant-card-login {
+  width: 400px;
   position: fixed;
   left: 50%;
   top: 50%;

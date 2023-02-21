@@ -2,12 +2,12 @@ import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { adminRouters } from "./routes";
 import Frame from "./components/Frame/Index";
-
+import { isLogined } from "./utils/auth";
 import "antd/dist/reset.css";
 import "./App.css";
 
 function App() {
-  return (
+  return isLogined() ? (
     <Frame>
       <Switch>
         {adminRouters.map((route) => {
@@ -22,9 +22,12 @@ function App() {
             />
           );
         })}
+        <Redirect to={adminRouters[0].path} from="/admin" />
         <Redirect to="/404" />
       </Switch>
     </Frame>
+  ) : (
+    <Redirect to="/login" />
   );
 }
 
